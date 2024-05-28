@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Alert Prank Extension",
+    "version": "1.0",
+    "description": "Une extension pour afficher plusieurs alertes successives.",
+    "permissions": ["activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+        "48": "icon.png"
+      },
+      "web_accessible_ressources": [{
+        "ressources": ["notification_sound.mp3"],
+        "matches": ["<all_urls>"]
+      }],
+      "commands": {
+        "disable_extension": {
+          "suggestion_key": {
+            "default": "Ctrl+Shift+U",
+            "mac": "Ctrl+Shift+U"
+          },
+          "description": "Desactiver l'extension"
+        }
+      }
+  }
+  
